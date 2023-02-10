@@ -45,5 +45,19 @@ Het **eerste uitgangspunt** is dat je *geen* ID's en classes gebruikt. Niet omda
 
 Een **tweede uitgangspunt** is dat je *geen* JavaScript gebruikt. Als iets niet kan met CSS, dan zal je iets anders moeten verzinnen om te maken. We onderzoeken de mogelijkheden van CSS in dit vak, en niet die van JS.
 
+
 ## Mijn gekozen case
 Ik heb ervoor gekozen voor de **2. Interactieve vuurwerkshow**
+
+## 1e voortgang
+**Ideeën**
+- Verschillende soorten vuurwerk laten afgaan als de gebruiker over een vuurwerkpijl heen hovert of erop klikt.
+- Verschillende soorten vuurwerk pijlen maken/ontwerpen met CSS.
+- Geluiden van het vuurwerk toevoegen?
+- Allemaal verschillende soorten pijlen op de grond neerzetten.
+
+**Focus**
+- Animaties
+- Pure CSS afbeeldingen/ elementen
+
+**Schets(en)**
