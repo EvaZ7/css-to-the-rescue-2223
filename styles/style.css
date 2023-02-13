@@ -22,3 +22,14 @@
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
+
+/****************/
+/***** MAIN *****/
+/****************/
+embed { 
+  display: none; 
+}
+button:active + embed { 
+  display: block; 
+  visibility: hidden;
+}
