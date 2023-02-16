@@ -78,59 +78,178 @@ button {
 /*** elementen ***/
 /*****************/
 
+/***** 1: doosje *****/
+/*********************/
+/*scene*/
+li:first-of-type button {
+  height: 3em;
+  aspect-ratio: 1;
+  /*verdwijnpunt*/
+  display: grid;
+  place-content: center;
+
+  perspective: 20em;
+
+  transform-style: preserve-3d;
+  background-color: rgba(255, 255, 255, 0);
+}
+/*kubus*/
+li:first-of-type button >div {
+  position: relative;
+
+  width: 3em;
+  aspect-ratio: 1;
+
+  /* background-color: blue; */
+
+  transition: 1s;
+
+  transform-style: preserve-3d;
+  transform-origin: 50% 0%;
+  transform: rotateY(-25deg) rotateX(-10deg);
+}
+
+li:first-of-type button div:hover {
+  transform: rotateY(350deg) rotateX(10deg);
+}
+
+/*vlakjes*/
+li:first-of-type button div div {
+  position: absolute;
+  inset: 0;
+
+
+  background-color: rgba(106, 0, 255, 0.609);
+}
+li:first-of-type button div div:first-of-type {
+  transform: translateZ(1.5em);
+  background-color: green;
+}
+li:first-of-type button div div:nth-of-type(2) {
+  transform: translateZ(-3em);
+  background-color: orange;
+}
+li:first-of-type button div div:nth-of-type(3) {
+  transform: rotateY(90deg) translateZ(1.5em);
+  background-color: hotpink;
+  height: 3em;
+  aspect-ratio: 3 / 2;
+  transform-origin: 33.4% 0%;
+}
+li:first-of-type button div div:nth-of-type(4) {
+  transform: rotateY(-90deg) translateZ(3em);
+  background-color: yellow;
+  height: 3em;
+  aspect-ratio: 3 / 2;
+  transform-origin: 66.68% 0%;
+}
+li:first-of-type button div div:nth-of-type(5) {
+  transform: rotateX(90deg) translateZ(3em);
+  background-color: darkmagenta;
+  width: 3em;
+  aspect-ratio: 2 / 3;
+  transform-origin: 0% 66.68%;
+}
+li:first-of-type button div div:nth-of-type(6) {
+  transform: rotateX(-90deg) translateZ(1.5em);
+  background-color: darkslategray;
+  width: 3em;
+  aspect-ratio: 2 / 3;
+  transform-origin: 0% 33.4%;
+}
 
 
 /***** 2: 2pijlen *****/
 /**********************/
 
-/*****Pijl 1*****/
+/*alle 2 de pijlen*/
 li:nth-of-type(2) button > div {
   display: flex;
   flex-direction: row;
   align-items: center;
 
   position: relative;
+  margin-top: 0.6em;
 }
 
-/*stokkie*/
-li:nth-of-type(2) button div:first-child>div:first-child {
+/*Pijl 1*/
+li:nth-of-type(2) button > div:first-child {
+  transform: rotate(-15deg);
+}
+
+/*stokkies*/
+li:nth-of-type(2) button>div>div:first-child {
   width: 4em;
   height: 0.3em;
-  background-color: brown;
+
+  background-color: rgb(144, 82, 32);
+  box-shadow: 0em 0.05em 0.1em 0.1em rgb(104, 41, 8) inset;
+
   padding: none;
+
+  border-radius: 1em;
+  margin-right: -0.3em;
 }
+
 /*lontje*/
-li:nth-of-type(2) button div:first-child>div:nth-child(2){
-  bottom: 1.1em;
-  left: 3.2em;
+li:nth-of-type(2) button>div>div:nth-child(2) {
+  bottom: 0.9em;
+  left: 3.3em;
   position: absolute;
 
   transform: rotate(-25deg);
 }
-li:nth-of-type(2) button div:first-child>div:nth-child(2) div{
-  width: 1em;
-  height: 1em;
+li:nth-of-type(2) button div>div:nth-child(2) div {
+  width: 0.5em;
+  height: 0.5em;
+
   border-radius: 1em;
+  
   margin-top: -0.18em;
   z-index: -1;
 }
-li:nth-of-type(2) button div:first-child>div:nth-child(2) div:first-child{
-  border-right: 0.2em solid black;
-  border-bottom: 0.2em solid black;
+li:nth-of-type(2) button div>div:nth-child(2) div:first-child {
+  border-right: 0.15em solid black;
+  border-bottom: 0.15em solid black;
+
   transform: rotate(-48deg);
 }
-li:nth-of-type(2) button div:first-child>div:nth-child(2) div:last-child{
-  border-left: 0.2em solid black;
-  border-top: 0.2em solid black;
+li:nth-of-type(2) button div>div:nth-child(2) div:last-child {
+  border-left: 0.15em solid black;
+  border-top: 0.15em solid black;
+
   transform: rotate(-48deg);
 }
 
 /*cilinder*/
-li:nth-of-type(2) button div:first-child>div:nth-child(3) {
-  width: 3em;
-  height: 2em;
-  background-color: red;
+li:nth-of-type(2) button div>div:nth-child(3) {
+  width: 1.2em;
+  height: 1.4em;
+
+  margin-right: -0.8em;
+  border-radius: 1em;
+
+  background-color: rgb(215, 1, 1);
+  box-shadow: 0.2em 0.25em 0.15em 0.05em rgb(156, 8, 8) inset;
+
   z-index: 0;
+}
+li:nth-of-type(2) button div>div:nth-child(4) {
+  width: 3em;
+  height: 1.4em;
+
+  background-color: rgb(226, 2, 2);
+  box-shadow: 0em 0.2em 0.5em 0.2em rgb(156, 8, 8) inset;
+}
+li:nth-of-type(2) button div>div:nth-child(5) {
+  width: 1.3em;
+  height: 1.4em;
+
+  margin-left: -0.7em;
+  border-radius: 1em;
+
+  background-color: rgb(209, 7, 7);
+  box-shadow: 0.08em 0.08em 0.15em 0.18em rgb(234, 14, 14) inset;
 }
 
 
