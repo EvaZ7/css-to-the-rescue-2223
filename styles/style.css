@@ -22,7 +22,10 @@
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
-
+:root {
+  --box-color: rgb(199, 130, 18);
+  --box-shadow-color: rgb(163, 82, 2);
+}
 
 
 
@@ -61,6 +64,8 @@ ul {
   margin: 0;
 }
 li {
+  display: flex;
+  align-items: flex-end;
   background-color: aqua;
   width: 3em;
 }
@@ -93,6 +98,7 @@ li:first-of-type button {
   transform-style: preserve-3d;
   background-color: rgba(255, 255, 255, 0);
 }
+
 /*kubus*/
 li:first-of-type button >div {
   position: relative;
@@ -106,57 +112,64 @@ li:first-of-type button >div {
 
   transform-style: preserve-3d;
   transform-origin: 50% 0%;
-  transform: rotateY(-25deg) rotateX(-10deg);
+  transform: rotateY(-25deg) rotateX(-20deg);
 }
 
 li:first-of-type button div:hover {
-  transform: rotateY(350deg) rotateX(10deg);
+  transform: rotateY(350deg) rotateX(20deg);
 }
 
 /*vlakjes*/
 li:first-of-type button div div {
   position: absolute;
   inset: 0;
-
-
-  background-color: rgba(106, 0, 255, 0.609);
 }
+
 li:first-of-type button div div:first-of-type {
   transform: translateZ(1.5em);
-  background-color: green;
+  background-color: var(--box-color);
+  box-shadow: 0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
 li:first-of-type button div div:nth-of-type(2) {
   transform: translateZ(-3em);
-  background-color: orange;
+  background-color: var(--box-color);
+  box-shadow: -0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
 li:first-of-type button div div:nth-of-type(3) {
   transform: rotateY(90deg) translateZ(1.5em);
-  background-color: hotpink;
+  background-color: var(--box-color);
   height: 3em;
   aspect-ratio: 3 / 2;
   transform-origin: 33.4% 0%;
+  box-shadow: -0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
 li:first-of-type button div div:nth-of-type(4) {
   transform: rotateY(-90deg) translateZ(3em);
-  background-color: yellow;
+  background-color: var(--box-color);
   height: 3em;
   aspect-ratio: 3 / 2;
   transform-origin: 66.68% 0%;
+  box-shadow: -0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
 li:first-of-type button div div:nth-of-type(5) {
   transform: rotateX(90deg) translateZ(3em);
-  background-color: darkmagenta;
+  background-color: var(--box-color);
   width: 3em;
   aspect-ratio: 2 / 3;
   transform-origin: 0% 66.68%;
+  box-shadow: 0.2em 0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
 li:first-of-type button div div:nth-of-type(6) {
   transform: rotateX(-90deg) translateZ(1.5em);
-  background-color: darkslategray;
+  background-color: var(--box-color);
   width: 3em;
   aspect-ratio: 2 / 3;
   transform-origin: 0% 33.4%;
+  box-shadow: 0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
+
+
+
 
 
 /***** 2: 2pijlen *****/
@@ -252,6 +265,53 @@ li:nth-of-type(2) button div>div:nth-child(5) {
   box-shadow: 0.08em 0.08em 0.15em 0.18em rgb(234, 14, 14) inset;
 }
 
+
+
+
+
+/*** 7: danger vat ***/
+/*********************/
+li:nth-of-type(7) button > div:first-of-type {
+  width: 7em;
+  aspect-ratio: 1/1;
+  border-radius: 8em;
+  background-color: rgb(77, 114, 21);
+  transform: rotateX(70deg);
+
+  margin-bottom: -3.5em;
+}
+li:nth-of-type(7) button > div:nth-of-type(2) {
+  width: 7em;
+  aspect-ratio: 2/3;
+  background-color: rgb(132, 220, 1);
+
+  display: flex;
+  justify-content: center;
+}
+li:nth-of-type(7) button > div:nth-of-type(2) p {
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+  padding-bottom: 1.1em;
+  font-family: 'Courier New', Courier, monospace, Verdana;
+  color: black;
+  font-size: 2em;
+  margin-top: 2em;
+  font-weight: bold;
+  background-color: rgb(255, 225, 0);
+  height: 0.5em;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+li:nth-of-type(7) button > div:last-of-type {
+  width: 7em;
+  aspect-ratio: 1/1;
+  border-radius: 8em;
+  background-color: rgb(132, 220, 1);
+  transform: rotateX(70deg);
+
+  margin-top: -3.5em;
+  margin-bottom: -2.3em;
+}
 
 
 
