@@ -384,10 +384,11 @@ li:nth-of-type(2) button div>div:nth-child(5) {
 
 /** 5: rotje groot en klein **/
 /*****************************/
-
 li:nth-of-type(5) button {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
+  margin-left: 5em;
 }
 
 /*groot rotje*/
@@ -457,6 +458,7 @@ li:nth-of-type(5) button > div:first-of-type {
   display: flex;
   flex-direction: row;
   margin-left: -3em;
+  margin-bottom: 1em;
 }
 li:nth-of-type(5) button > div:first-of-type div {
   margin-left: 1em;
@@ -487,7 +489,7 @@ li:nth-of-type(5) button > div:first-of-type div div:nth-of-type(2) {
 
 /*onderkantjes*/
 li:nth-of-type(5) button > div:first-of-type div div:nth-of-type(3) {
-  width: 1em;
+  width: 0.97em;
   aspect-ratio: 1/1;
 
   background-color: var(--firework-red);
@@ -497,6 +499,22 @@ li:nth-of-type(5) button > div:first-of-type div div:nth-of-type(3) {
 
   border-radius: 1em;
   margin-top: -0.5em;
+}
+
+/*positioneren kleine rotjes*/
+li:nth-of-type(5) button > div:first-of-type > div:first-of-type {
+  transform: rotate(45deg);
+}
+li:nth-of-type(5) button > div:first-of-type > div:nth-of-type(2) {
+  transform: rotate(-80deg);
+  position: absolute;
+  /* left: 2em; */
+  bottom: 0;
+  margin-left: 4.1em;
+}
+li:nth-of-type(5) button > div:first-of-type > div:nth-of-type(3) {
+  transform: rotate(-20deg);
+  margin-left: 4em;
 }
 
 
