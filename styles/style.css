@@ -26,6 +26,10 @@
   /*doosje kleuren*/
   --box-color: rgb(199, 130, 18);
   --box-shadow-color: rgb(163, 82, 2);
+
+  /*vuurwerk pijlen*/
+  --firework-red: rgb(215, 1, 1);
+  --firework-shadow: rgb(156, 8 ,8);
 }
 
 
@@ -349,8 +353,8 @@ li:nth-of-type(8) button div>div:nth-child(3) {
   margin-right: -0.8em;
   border-radius: 1em;
 
-  background-color: rgb(215, 1, 1);
-  box-shadow: 0.2em 0.25em 0.15em 0.05em rgb(156, 8, 8) inset;
+  background-color: var(--firework-red);
+  box-shadow: 0.2em 0.25em 0.15em 0.05em var(--firework-shadow) inset;
 
   z-index: 0;
 }
@@ -360,8 +364,8 @@ li:nth-of-type(8) button div>div:nth-child(4) {
   width: 3em;
   height: 1.4em;
 
-  background-color: rgb(226, 2, 2);
-  box-shadow: 0em 0.2em 0.5em 0.2em rgb(156, 8, 8) inset;
+  background-color: var(--firework-red);
+  box-shadow: 0em 0.2em 0.5em 0.2em var(--firework-shadow) inset;
 }
 li:nth-of-type(2) button div>div:nth-child(5) {
   width: 1.3em;
@@ -370,9 +374,131 @@ li:nth-of-type(2) button div>div:nth-child(5) {
   margin-left: -0.7em;
   border-radius: 1em;
 
-  background-color: rgb(209, 7, 7);
+  background-color: var(--firework-red);
   box-shadow: 0.08em 0.08em 0.15em 0.18em rgb(234, 14, 14) inset;
 }
+
+
+
+
+
+/** 5: rotje groot en klein **/
+/*****************************/
+
+li:nth-of-type(5) button {
+  display: flex;
+  flex-direction: row;
+}
+
+/*groot rotje*/
+li:nth-of-type(5) button > div:last-of-type {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+/*lontje*/
+li:nth-of-type(5) button > div:last-of-type div:first-of-type {
+  width: 3em;
+  height: 3em;
+
+  border-left: 0.4em solid rgb(0, 128, 87);
+  border-radius: 1.5em;
+
+  transform: rotate(60deg);
+
+  margin-bottom: -2.5em;
+  margin-left: 3.5em;
+
+  z-index: 1;
+}
+/*top*/
+li:nth-of-type(5) button > div:last-of-type div:nth-of-type(2) {
+  width: 3em;
+  height: 3em;
+
+  background-color: var(--firework-shadow);
+  box-shadow: 0.5em -0.5em 1em 0.1em var(--firework-red) inset;
+
+  transform: rotateX(50deg);
+
+  border-radius: 2em;
+  margin-bottom: -1.5em;
+}
+/*cilinder*/
+li:nth-of-type(5) button > div:last-of-type div:nth-of-type(3) {
+  width: 3em;
+  height: 5em;
+
+  background-color: var(--firework-red);
+
+  box-shadow: 0.3em 0.5em 0.5em 0.3em var(--firework-shadow) inset;
+}
+/*cilinder*/
+li:nth-of-type(5) button > div:last-of-type div:nth-of-type(4) {
+  width: 3em;
+  height: 3em;
+
+  background-color: var(--firework-red);
+  box-shadow: 0.25em -0.5em 0.3em 0.2em var(--firework-shadow) inset;
+
+  transform: rotateX(50deg);
+
+  border-radius: 2em;
+  margin-top: -1.5em;
+}
+
+
+/*kleine rotjes*/
+li:nth-of-type(5) button > div:first-of-type {
+  display: flex;
+  flex-direction: row;
+  margin-left: -3em;
+}
+li:nth-of-type(5) button > div:first-of-type div {
+  margin-left: 1em;
+}
+
+/*lontjes*/
+li:nth-of-type(5) button > div:first-of-type div div:first-of-type {
+  width: 1em;
+  height: 1em;
+
+  border-left: 0.15em solid rgb(0, 128, 87);
+  border-radius: 1em;
+
+  transform: rotate(30deg);
+
+  margin-bottom: -0.2em;
+  margin-left: 1.6em;
+}
+
+/*cilinder*/
+li:nth-of-type(5) button > div:first-of-type div div:nth-of-type(2) {
+  width: 1em;
+  height: 2.5em;
+
+  background-color: var(--firework-red);
+  box-shadow: 0.2em 0.02em 0.2em 0.1em var(--firework-shadow) inset;
+}
+
+/*onderkantjes*/
+li:nth-of-type(5) button > div:first-of-type div div:nth-of-type(3) {
+  width: 1em;
+  aspect-ratio: 1/1;
+
+  background-color: var(--firework-red);
+  box-shadow: 0.2em -0.3em 0.2em 0.1em var(--firework-shadow) inset;
+
+  transform: rotateX(60deg);
+
+  border-radius: 1em;
+  margin-top: -0.5em;
+}
+
 
 
 

@@ -61,3 +61,5 @@ Ik heb ervoor gekozen voor de **2. Interactieve vuurwerkshow**
 - Pure CSS afbeeldingen/ elementen
 
 **Schets(en)**
+
+https://css-tricks.com/snippets/css/css-triangle/
