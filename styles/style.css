@@ -56,7 +56,7 @@ main{
 }
 h1 {
   z-index: 1;
-  color: rgb(245, 235, 212);
+  color: rgb(239, 189, 89);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 ul {
@@ -71,13 +71,10 @@ ul {
   position: absolute;
   bottom: 0;
   margin: 0;
-
-  /* background-color: bisque; */
 }
 li {
   display: flex;
   align-items: flex-end;
-  /* background-color: aqua; */
   width: 3em;
 }
 button {
