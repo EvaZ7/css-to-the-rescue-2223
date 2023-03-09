@@ -30,6 +30,10 @@
   /*vuurwerk pijlen*/
   --firework-red: rgb(215, 1, 1);
   --firework-shadow: rgb(156, 8 ,8);
+  --firework-blue: rgb(0, 136, 255);
+
+  /*het vat*/
+  --lightgreen: rgb(121, 200, 3);
 }
 
 
@@ -43,7 +47,7 @@ main {
   display: flex;
   justify-content: center;
 }
-section{
+main{
   background-color: rgb(5, 5, 52);
   width: 100vw;
   height: 100vh;
@@ -68,12 +72,12 @@ ul {
   bottom: 0;
   margin: 0;
 
-  background-color: bisque;
+  /* background-color: bisque; */
 }
 li {
   display: flex;
   align-items: flex-end;
-  background-color: aqua;
+  /* background-color: aqua; */
   width: 3em;
 }
 button {
@@ -91,9 +95,11 @@ button {
 /*****************/
 
 /***** 1: doosje *****/
+/** 5: dangerdoosje **/
 /*********************/
 /*scene*/
-li:first-of-type button {
+li:first-of-type button,
+li:nth-of-type(4) button {
   height: 6em;
   margin-bottom: 0.8em;
   margin-left: -2em;
@@ -110,13 +116,12 @@ li:first-of-type button {
 }
 
 /*kubus*/
-li:first-of-type button >div {
+li:first-of-type button >div,
+li:nth-of-type(4) button >div {
   position: relative;
 
   width: 8em;
   height: 6em;
-
-  /* background-color: blue; */
 
   transition: 1s;
 
@@ -125,35 +130,67 @@ li:first-of-type button >div {
   transform: rotateY(40deg) rotateX(60deg);
 }
 
-li:first-of-type button div:hover {
+li:first-of-type button div:hover,
+li:nth-of-type(4) button div:hover {
   transform: rotateY(60deg) rotateX(65deg);
 }
 
 /*vlakjes*/
-li:first-of-type button div div {
+li:first-of-type button div div,
+li:nth-of-type(4) button div div {
   position: absolute;
   inset: 0;
 }
+li:first-of-type button:focus{
+  animation: explodingbox 0.3s linear 1 forwards;
+  outline: none;
+}
+li:first-of-type button:focus div div:first-of-type {
+  transform: translateZ(5em);
+}
+li:first-of-type button:focus div div:nth-of-type(2) {
+  transform: translateZ(-5em);
+}
+li:first-of-type button:focus div div:nth-of-type(3) {
+  transform: translateZ(-1em);
+}
+li:first-of-type button:focus div div:nth-of-type(4) {
+  transform: translateZ(-2em);
+}
+li:first-of-type button:focus div div:nth-of-type(5) {
+  transform: translateZ(2em);
+}
+li:first-of-type button:focus div div:nth-of-type(6) {
+  transform: translateZ(2em);
+}
 
-li:first-of-type button div div:first-of-type {
+/*bovenkant*/
+li:first-of-type button div div:first-of-type,
+li:nth-of-type(4) button div div:first-of-type {
   transform: translateZ(1.5em);
   background: linear-gradient(0deg, var(--box-color) 0%, var(--box-color) 40%, rgba(255,255,255,0.8029805672268908) 41%, rgba(255,255,255,0.7973783263305322) 59%, var(--box-color) 60%, var(--box-color) 100%);
   box-shadow: 0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
-li:first-of-type button div div:nth-of-type(2) {
+/*onderkant*/
+li:first-of-type button div div:nth-of-type(2),
+li:nth-of-type(4) button div div:nth-of-type(2) {
   transform: translateZ(-3em);
   background-color: var(--box-color);
   box-shadow: -0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
-li:first-of-type button div div:nth-of-type(3) {
+/*achterkant*/
+li:first-of-type button div div:nth-of-type(3),
+li:nth-of-type(4) button div div:nth-of-type(3) {
   transform: rotateY(90deg) translateZ(6.3em);
   background-color: var(--box-color);
   height: 6em;
-  width: 5em;
+  width: 4.9em;
   transform-origin: 33.4% 0%;
   box-shadow: -0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
-li:first-of-type button div div:nth-of-type(4) {
+/*voorkant*/
+li:first-of-type button div div:nth-of-type(4),
+li:nth-of-type(4) button div div:nth-of-type(4) {
   transform: rotateY(-90deg) translateZ(3.1em);
   background-color: var(--box-color);
   height: 6.15em;
@@ -161,15 +198,19 @@ li:first-of-type button div div:nth-of-type(4) {
   transform-origin: 66% 0%;
   box-shadow: -0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
-li:first-of-type button div div:nth-of-type(5) {
-  transform: rotateX(90deg) translateZ(3.3em);
+/*links*/
+li:first-of-type button div div:nth-of-type(5),
+li:nth-of-type(4) button div div:nth-of-type(5) {
+  transform: rotateX(90deg) translateZ(3.2em);
   background-color: var(--box-color);
   width: 8em;
-  height: 5em;
+  height: 4.8em;
   transform-origin: 0% 66.68%;
   box-shadow: 0.2em 0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
-li:first-of-type button div div:nth-of-type(6) {
+/*rechts*/
+li:first-of-type button div div:nth-of-type(6),
+li:nth-of-type(4) button div div:nth-of-type(6) {
   transform: rotateX(-90deg) translateZ(4.5em);
   background-color: var(--box-color);
   width: 8em;
@@ -177,90 +218,6 @@ li:first-of-type button div div:nth-of-type(6) {
   transform-origin: 0% 33.4%;
   box-shadow: 0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
 }
-
-/***** 1: doosje *****/
-/*********************/
-/*scene*/
-/* li:first-of-type button {
-  height: 3em;
-  aspect-ratio: 1;
-  display: grid;
-  place-content: center;
-
-  perspective: 20em;
-
-  transform-style: preserve-3d;
-  background-color: rgba(255, 255, 255, 0);
-} */
-
-/*kubus*/
-/* li:first-of-type button >div {
-  position: relative;
-
-  width: 3em;
-  aspect-ratio: 1; */
-
-  /* background-color: blue; */
-
-  /* transition: 1s;
-
-  transform-style: preserve-3d;
-  transform-origin: 50% 0%;
-  transform: rotateY(-25deg) rotateX(-20deg);
-} */
-
-/* li:first-of-type button div:hover {
-  transform: rotateY(350deg) rotateX(20deg);
-} */
-
-/*vlakjes*/
-/* li:first-of-type button div div {
-  position: absolute;
-  inset: 0;
-}
-
-li:first-of-type button div div:first-of-type {
-  transform: translateZ(1.5em);
-  background-color: var(--box-color);
-  box-shadow: 0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
-}
-li:first-of-type button div div:nth-of-type(2) {
-  transform: translateZ(-3em);
-  background-color: var(--box-color);
-  box-shadow: -0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
-}
-li:first-of-type button div div:nth-of-type(3) {
-  transform: rotateY(90deg) translateZ(1.5em);
-  background-color: var(--box-color);
-  height: 3em;
-  aspect-ratio: 3 / 2;
-  transform-origin: 33.4% 0%;
-  box-shadow: -0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
-}
-li:first-of-type button div div:nth-of-type(4) {
-  transform: rotateY(-90deg) translateZ(3em);
-  background-color: var(--box-color);
-  height: 3em;
-  aspect-ratio: 3 / 2;
-  transform-origin: 66.68% 0%;
-  box-shadow: -0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
-}
-li:first-of-type button div div:nth-of-type(5) {
-  transform: rotateX(90deg) translateZ(3em);
-  background-color: var(--box-color);
-  width: 3em;
-  aspect-ratio: 2 / 3;
-  transform-origin: 0% 66.68%;
-  box-shadow: 0.2em 0.2em 0.5em 0.1em var(--box-shadow-color) inset;
-}
-li:first-of-type button div div:nth-of-type(6) {
-  transform: rotateX(-90deg) translateZ(1.5em);
-  background-color: var(--box-color);
-  width: 3em;
-  aspect-ratio: 2 / 3;
-  transform-origin: 0% 33.4%;
-  box-shadow: 0.2em -0.2em 0.5em 0.1em var(--box-shadow-color) inset;
-} */
 
 
 
@@ -282,7 +239,52 @@ li:nth-of-type(8) button > div {
   position: relative;
   margin-top: 0.6em;
 }
+li:nth-of-type(2) button {
+  margin-bottom: -13em;
+}
+li:nth-of-type(2) button:hover {
+  filter: drop-shadow(0 0 1.5em var(--firework-red));
+}
+li:nth-of-type(2) button:focus {
+  outline: none;
+}
+li:nth-of-type(2) {
+  height: 1em;
+}
 
+li:nth-of-type(2) button:focus > div:first-child {
+  offset-path: path('M 1 696.5 C 587.8 464.1 354 343.5 286.5 343.5 C 173.053 343.5 100.5 373.1 138.5 493.5 C 186 644 644.877 576.905 744.5 493.5 C 852 403.5 897 256 832 141 C 767 26 429 -39 329 28.5');
+  animation: shootarrows 5s 1 ease-in forwards;
+  margin-bottom: -18em;
+  background-image: 
+  radial-gradient(var(--firework-red) 5%, transparent 29.6%),
+  radial-gradient(var(--firework-red) 5%, transparent 29.6%);
+  background-position: 0px 0px, 8em 8em;
+  background-size: 1em 1em;
+  background-color: transparent;
+  height: 10em;
+
+  border-radius: 8em;
+}
+li:nth-of-type(2) button:focus > div:nth-of-type(2) {
+  offset-path: path('M272.212 811C505.411 749.028 910.709 607.627 910.709 529.071C910.709 426.907 861.065 413.419 746.502 400.326C622.026 386.1 165.286 526.889 43.0857 400.326C-54.6747 299.076 40.5398 200.735 100.367 164.221C197.364 103.122 454.749 -14.7121 708.315 2.74485C1025.27 24.566 1032.91 260.671 933.622 293.402C834.334 326.134 435.655 312.605 520.431 164.221C588.253 45.5143 1125.07 55.1156 1385 74.7546');
+  animation: shootarrows 5s 1 ease-in forwards;
+  margin-bottom: 53em;
+  margin-left: -12em;
+  background-image: 
+  radial-gradient(var(--firework-red) 5%, transparent 29.6%),
+  radial-gradient(var(--firework-red) 5%, transparent 29.6%);
+  background-position: 0px 0px, 8em 8em;
+  background-size: 1em 1em;
+  background-color: transparent;
+  height: 10em;
+
+  border-radius: 8em;
+}
+li:nth-of-type(2) button:focus div>div:nth-child(2) {
+  bottom: 4em;
+  left: 3.3em;
+}
 /*Pijl 1*/
 li:nth-of-type(2) button > div:first-child {
   transform: rotate(-15deg);
@@ -381,6 +383,103 @@ li:nth-of-type(2) button div>div:nth-child(5) {
 
 
 
+/** 3: drakenpijl **/
+/*******************/
+
+/* li:nth-of-type(3) button > div {
+  width: 1.5em;
+  height: 3em;
+
+  background-image: 
+  radial-gradient(100% 100% at left, transparent 0%, transparent 25%, rgb(167, 33, 33) 26%, rgb(167, 33, 33) 74%, transparent 75%),
+  radial-gradient(transparent 25%, rgb(167, 33, 33) 26%,rgb(167, 33, 33) 74%, transparent 75%);
+  background-size: 1.5em 1.5em;
+} */
+
+
+
+
+/** 4: danger doosje **/
+/**********************/
+
+/*bovenkant*/
+li:nth-of-type(4) button div div:first-of-type {
+  background-image: 
+  radial-gradient(rgb(145, 32, 32) 25%, rgb(167, 33, 33) 26%, rgb(167, 33, 33) 50%, transparent 50%),
+  radial-gradient(rgb(145, 32, 32) 25%, rgb(167, 33, 33) 26%,rgb(167, 33, 33) 50%, transparent 50%);
+  background-position: 0 0, 3em 3em;
+  background-size: 2em 2em;
+  background-color: rgb(226, 53, 53);
+}
+
+/*letters*/
+li:nth-of-type(4) button div div:nth-of-type(4) p {
+  margin-top: 1em;
+  padding-left: 2em;
+  transform: rotate(90deg);
+}
+
+/*roteren*/
+li:nth-of-type(4) button >div {
+  transform: rotateY(190deg) rotateX(110deg) rotateZ(60deg);
+  margin-bottom: -4em;
+  z-index: -1;
+}
+li:nth-of-type(4) button {
+  transform: rotate(-5deg);
+}
+
+li:nth-of-type(4) button div:hover {
+  transform: rotateY(185deg) rotateX(115deg) rotateZ(70deg);
+}
+
+/*vuurwerk*/
+li:nth-of-type(4) button {
+  margin-bottom: 1em;
+}
+li:nth-of-type(4) button:focus {
+  margin-bottom: 3.2em;
+  outline: none;
+}
+li:nth-of-type(4) button:focus span {
+  width: 0.5em;
+  height: 3em;
+  background-color: var(--firework-red);
+  border-radius: 3em;
+}
+li:nth-of-type(4) button span:first-of-type {
+  margin-bottom: -2em;
+  margin-left: 4.5em;
+  animation: straightup 0.2s ease-in 10 forwards;
+}
+li:nth-of-type(4) button span:nth-of-type(2) {
+  margin-bottom: -3em;
+  margin-left: 6em;
+  animation: straightup 0.5s ease-in 0.3s 10 forwards;
+}
+li:nth-of-type(4) button span:nth-of-type(3) {
+  margin-bottom: -2em;
+  margin-left: 8em;
+  animation: straightup 0.7s ease-in 0.2s 10 forwards;
+}
+li:nth-of-type(4) button span:nth-of-type(4) {
+  margin-bottom: -2em;
+  margin-left: 7em;
+  animation: straightup 0.7s ease-in 0.4s 10 forwards;
+}
+li:nth-of-type(4) button span:nth-of-type(5) {
+  margin-bottom: -2em;
+  margin-left: 5em;
+  animation: straightup 0.4s ease-in 0.1s 10 forwards;
+}
+li:nth-of-type(4) button span:nth-of-type(6) {
+  margin-bottom: -2em;
+  margin-left: 9em;
+  animation: straightup 0.2s ease-in 0.2s 10 forwards;
+}
+
+
+
 
 /** 5: rotje groot en klein **/
 /*****************************/
@@ -389,6 +488,9 @@ li:nth-of-type(5) button {
   flex-direction: row;
   align-items: flex-end;
   margin-left: 5em;
+}
+li:nth-of-type(5) button:hover {
+  filter: drop-shadow(0 0 1.5em var(--firework-red));
 }
 
 /*groot rotje*/
@@ -401,6 +503,27 @@ li:nth-of-type(5) button > div:last-of-type {
   margin-bottom: 0;
   padding-bottom: 0;
 }
+
+/*animations*/
+li:nth-of-type(5) button:hover > div:first-of-type{
+  animation: jump 0.2s ease-out infinite alternate;
+}
+li:nth-of-type(5) button:hover > div:last-of-type {
+  animation: jump 0.3s ease-out infinite alternate;
+}
+
+li:nth-of-type(5) button:focus {
+  outline: none;
+}
+
+li:nth-of-type(5) button:focus > div:first-of-type,
+li:nth-of-type(5) button:focus > div:last-of-type {
+  animation: exploding 1s ease-in 1 forwards;
+}
+li:nth-of-type(5) button:focus > div:last-of-type > div {
+  animation: exploding2 1s ease-in 1 forwards;
+}
+
 /*lontje*/
 li:nth-of-type(5) button > div:last-of-type div:first-of-type {
   width: 3em;
@@ -532,6 +655,62 @@ li:nth-of-type(6) button > div {
 
   transform: rotate(-70deg);
 }
+li:nth-of-type(6) button {
+  margin-bottom: 0em;
+}
+li:nth-of-type(6) button:hover {
+  filter: drop-shadow(0 0 1.5em var(--firework-blue));
+}
+li:nth-of-type(6) button:focus {
+  margin-bottom: 33em;
+  margin-left: -35em;
+  position: absolute;
+  outline: none;
+}
+li:nth-of-type(6) button:focus > div{
+  offset-path: path('M601.39 456C664.83 417.434 791.443 321.17 790.377 244.642C789.044 148.982 728.536 131.207 700.548 160.293C672.56 189.379 671.494 249.813 708.811 275.667C746.129 301.521 869.543 267.588 877.539 213.94C885.536 160.293 861.28 59.4615 790.377 12.2776C719.473 -34.9063 508.897 75.9435 506.231 160.293C503.566 244.642 412.671 335.778 333.505 329.315C254.339 322.851 26.7023 332.223 3.77873 194.226C-19.1448 56.2297 105.335 4.19816 172.507 2.58227C239.678 0.966388 314.58 63.986 314.58 143.811C314.58 223.636 255.405 257.569 172.507 244.642C89.6088 231.715 86.9433 150.597 105.602 106.645C124.261 62.6932 179.171 70.4495 216.755 88.5474C254.339 106.645 255.671 153.829 245.009 178.068C234.347 202.306 218.087 228.16 161.845 194.226C116.851 167.08 154.825 139.609 179.437 129.268');
+  animation: round 3s ease-in 1 forwards;
+  offset-rotate: auto 70deg;
+  /* transform-origin: top center; */
+  /* offset-anchor: var(--anchorX) var(--anchorY); */
+  z-index: 1;
+}
+li:nth-of-type(6) button:focus span,
+li:nth-of-type(6) button:focus span::before,
+li:nth-of-type(6) button:focus span::after {
+  content: "";
+  position: absolute;
+  top: -48%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  width: 0.5vmin;
+  aspect-ratio: 1;
+  background:
+    /* random backgrounds */
+    radial-gradient(circle, var(--firework-blue) 0.2vmin, #0000 0) 50% 00%,
+    radial-gradient(circle, var(--firework-blue) 0.3vmin, #0000 0) 00% 50%,
+    radial-gradient(circle, var(--firework-blue) 0.5vmin, #0000 0) 50% 99%,
+    radial-gradient(circle, var(--firework-blue) 0.2vmin, #0000 0) 99% 50%,
+    radial-gradient(circle, var(--firework-blue) 0.3vmin, #0000 0) 80% 90%,
+    radial-gradient(circle, var(--firework-blue) 0.5vmin, #0000 0) 95% 90%,
+    radial-gradient(circle, var(--firework-blue) 0.5vmin, #0000 0) 10% 60%,
+    radial-gradient(circle, var(--firework-blue) 0.2vmin, #0000 0) 31% 80%,
+    radial-gradient(circle, var(--firework-blue) 0.3vmin, #0000 0) 80% 10%,
+    radial-gradient(circle, var(--firework-blue) 0.2vmin, #0000 0) 90% 23%,
+    radial-gradient(circle, var(--firework-blue) 0.3vmin, #0000 0) 45% 20%,
+    radial-gradient(circle, var(--firework-blue) 0.5vmin, #0000 0) 13% 24%
+    ;
+  background-size: 0.5vmin 0.5vmin;
+  background-repeat: no-repeat;
+  animation: firework 2s 2s 1 forwards;
+  opacity: 0;
+}
+li:nth-of-type(6) button:focus span::before {
+  transform: translate(-50%, -50%) rotate(25deg) !important;
+}
+li:nth-of-type(6) button:focus span::after {
+  transform: translate(-50%, -50%) rotate(-37deg) !important;
+}
 
 /*stokkie*/
 li:nth-of-type(6) button>div>div:first-child {
@@ -545,12 +724,12 @@ li:nth-of-type(6) button>div>div:nth-child(2) {
 
 /*bottom cilinder*/
 li:nth-of-type(6) button div>div:nth-child(3) {
-  background-color: rgb(0, 136, 255);
+  background-color: var(--firework-blue);
   box-shadow: 0.2em 0.25em 0.15em 0.05em rgb(0, 51, 255) inset;
 }
 
 li:nth-of-type(6) button div>div:nth-child(4) {
-  background-color: rgb(0, 136, 255);
+  background-color: var(--firework-blue);
   box-shadow: 0em 0.2em 0.5em 0.2em rgb(0, 51, 255) inset;
   /* height: 2em;
   width: 4em; */
@@ -569,6 +748,12 @@ li:nth-of-type(6) button div>div:nth-child(5) {
 /*********************/
 
 /*top*/
+li:nth-of-type(7) button:hover {
+  filter: drop-shadow(0 0 1.5em var(--lightgreen));
+}
+li:nth-of-type(7) button:focus {
+  outline: none;
+}
 li:nth-of-type(7) button > div:first-of-type {
   width: 7em;
   aspect-ratio: 1/1;
@@ -578,13 +763,15 @@ li:nth-of-type(7) button > div:first-of-type {
   transform: rotateX(70deg);
   margin-bottom: -3.5em;
 }
+li:nth-of-type(7) button:focus > div:first-of-type {
+  animation: lidup 0.5s 1 forwards;
+}
 
 /*main*/
 li:nth-of-type(7) button > div:nth-of-type(2) {
   width: 7em;
   aspect-ratio: 2/3;
   --darkgreen: rgb(105, 164, 17);
-  --lightgreen: rgb(121, 200, 3);
   /* background-color: rgb(121, 200, 3); */
   background: radial-gradient(140% 100% at top, var(--lightgreen) 0%,
                              var(--lightgreen) 47%, 
@@ -603,6 +790,43 @@ li:nth-of-type(7) button > div:nth-of-type(2) {
   display: flex;
   justify-content: center;
   box-shadow: 0.5em 0.08em 0.8em 0.5em rgb(110, 171, 19) inset;
+}
+
+li:nth-of-type(7) button:focus span,
+li:nth-of-type(7) button:focus span::before,
+li:nth-of-type(7) button:focus span::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 72%;
+  transform: translate(-50%, -50%);
+  width: 0.5vmin;
+  aspect-ratio: 1;
+  background:
+    /* random backgrounds */
+    radial-gradient(circle, var(--lightgreen) 0.2vmin, #0000 0) 50% 00%,
+    radial-gradient(circle, var(--lightgreen) 0.3vmin, #0000 0) 00% 50%,
+    radial-gradient(circle, var(--lightgreen) 0.5vmin, #0000 0) 50% 99%,
+    radial-gradient(circle, var(--lightgreen) 0.2vmin, #0000 0) 99% 50%,
+    radial-gradient(circle, var(--lightgreen) 0.3vmin, #0000 0) 80% 90%,
+    radial-gradient(circle, var(--lightgreen) 0.5vmin, #0000 0) 95% 90%,
+    radial-gradient(circle, var(--lightgreen) 0.5vmin, #0000 0) 10% 60%,
+    radial-gradient(circle, var(--lightgreen) 0.2vmin, #0000 0) 31% 80%,
+    radial-gradient(circle, var(--lightgreen) 0.3vmin, #0000 0) 80% 10%,
+    radial-gradient(circle, var(--lightgreen) 0.2vmin, #0000 0) 90% 23%,
+    radial-gradient(circle, var(--lightgreen) 0.3vmin, #0000 0) 45% 20%,
+    radial-gradient(circle, var(--lightgreen) 0.5vmin, #0000 0) 13% 24%
+    ;
+  background-size: 0.5vmin 0.5vmin;
+  background-repeat: no-repeat;
+  animation: firework 0.8s 0.3s 1 forwards;
+  opacity: 0;
+}
+li:nth-of-type(7) button:focus span::before {
+  transform: translate(-50%, -50%) rotate(25deg) !important;
+}
+li:nth-of-type(7) button:focus span::after {
+  transform: translate(-50%, -50%) rotate(-37deg) !important;
 }
 
 /*logo*/
@@ -631,7 +855,7 @@ li:nth-of-type(7) button > div:last-of-type {
   margin-top: -3.5em;
   margin-bottom: -2.3em;
 
-  background-color: rgb(121, 200, 3);
+  background-color: var(--lightgreen);
   box-shadow: 0.5em -1em 0.8em 0.5em rgb(110, 171, 19) inset;
 }
 
@@ -648,11 +872,80 @@ li:nth-of-type(8) button {
   flex-direction: row;
   align-items: center;
 }
+li:nth-of-type(8) button:hover {
+  filter: drop-shadow(0 0 1.5em var(--firework-red));
+}
+li:nth-of-type(8) button:focus {
+  outline: none;
+}
 li:nth-of-type(8) button > div {
   margin-bottom: 3.6em;
   margin-left: -5em;
 
   transform: rotate(-90deg)
+}
+
+li:nth-of-type(8) button:focus span,
+li:nth-of-type(8) button:focus span::before,
+li:nth-of-type(8) button:focus span::after {
+  content: "";
+  position: absolute;
+  top: 35%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  width: 0.5vmin;
+  aspect-ratio: 1;
+  background:
+    /* random backgrounds */
+    radial-gradient(circle, var(--firework-red) 0.2vmin, #0000 0) 50% 00%,
+    radial-gradient(circle, var(--firework-red) 0.3vmin, #0000 0) 00% 50%,
+    radial-gradient(circle, var(--firework-red) 0.5vmin, #0000 0) 50% 99%,
+    radial-gradient(circle, var(--firework-red) 0.2vmin, #0000 0) 99% 50%,
+    radial-gradient(circle, var(--firework-red) 0.3vmin, #0000 0) 80% 90%,
+    radial-gradient(circle, var(--firework-red) 0.5vmin, #0000 0) 95% 90%,
+    radial-gradient(circle, var(--firework-red) 0.5vmin, #0000 0) 10% 60%,
+    radial-gradient(circle, var(--firework-red) 0.2vmin, #0000 0) 31% 80%,
+    radial-gradient(circle, var(--firework-red) 0.3vmin, #0000 0) 80% 10%,
+    radial-gradient(circle, var(--firework-red) 0.2vmin, #0000 0) 90% 23%,
+    radial-gradient(circle, var(--firework-red) 0.3vmin, #0000 0) 45% 20%,
+    radial-gradient(circle, var(--firework-red) 0.5vmin, #0000 0) 13% 24%
+    ;
+  background-size: 0.5vmin 0.5vmin;
+  background-repeat: no-repeat;
+  animation: firework 0.8s 2.2s 1 forwards;
+  opacity: 0;
+}
+li:nth-of-type(8) button:focus span::before {
+  transform: translate(-50%, -50%) rotate(25deg) !important;
+}
+li:nth-of-type(8) button:focus span::after {
+  transform: translate(-50%, -50%) rotate(-37deg) !important;
+}
+
+li:nth-of-type(8) button:focus {
+  margin-bottom: 33em;
+  margin-left: -65em;
+  position: absolute;
+}
+li:nth-of-type(8) button:focus > div:first-of-type {
+  offset-path: path('M931.911 676C912.36 595.511 846.575 429.796 739.847 410.85C606.438 387.168 528.152 596.13 394.247 596.13C68.7736 596.13 -27.2582 441.033 7.81932 335.624C42.8969 230.214 158.48 171.24 298.215 166.596C437.95 161.953 720.296 271.714 873.832 239.501C1254.51 159.631 797.927 -48.8668 516.156 11.9644');
+  animation: round 3s ease-in 1 forwards;
+  offset-rotate: auto 100deg;
+  margin-right: 35em;
+  margin-bottom: 12em;
+}
+li:nth-of-type(8) button:focus > div:nth-of-type(2) {
+  offset-path: path('M474 778C546.333 761 691 701.8 691 601C691 475 569.5 364 461 384C352.5 404 393.5 699.5 229 692C64.5 684.5 -31.5 462 11.5 361C54.5 260 125.5 20 282 2.50002C407.2 -11.5 453.5 70.6667 461 113.5');
+  animation: round 3s ease-in 1 forwards;
+  offset-rotate: auto 70deg;
+  margin-right: -35em;
+  margin-bottom: 29em;
+}
+li:nth-of-type(8) button:focus > div:nth-of-type(3) {
+  offset-path: path('M888.348 618C917.516 552.825 958.351 412.465 888.348 372.424C800.843 322.374 746.695 437.911 654.425 405.168C562.156 372.424 15.0376 545.029 2.0419 372.424C-10.9538 199.82 98.6432 -1.31861 273.652 1.02021C448.66 3.35902 540.496 118.897 531.833 230.224C523.169 341.552 222.969 474.397 179.216 190.464');
+  animation: round 3s ease-in 1 forwards;
+  offset-rotate: auto 80deg;
+  margin-left: 0em;
 }
 
 /*Pijl 1*/
@@ -676,6 +969,64 @@ li:nth-of-type(8) button div>div:nth-child(5) {
 
 /*** 9: doosje vuuurwerk rond ***/
 /********************************/
+
+/*vuurwerk*/
+li:nth-of-type(9) button:hover {
+  filter: drop-shadow(0 0 1.5em var(--firework-red));
+}
+li:nth-of-type(9) button:focus {
+  outline: none;
+}
+li:nth-of-type(9) button:focus span,
+li:nth-of-type(9) button:focus span::before,
+li:nth-of-type(9) button:focus span::after {
+  content: "";
+  position: absolute;
+  top: -250%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  width: 0.5vmin;
+  aspect-ratio: 1;
+  background:
+    /* random backgrounds */
+    radial-gradient(circle, var(--firework-red) 0.2vmin, #0000 0) 50% 00%,
+    radial-gradient(circle, var(--firework-red) 0.3vmin, #0000 0) 00% 50%,
+    radial-gradient(circle, var(--firework-red) 0.5vmin, #0000 0) 50% 99%,
+    radial-gradient(circle, var(--firework-red) 0.2vmin, #0000 0) 99% 50%,
+    radial-gradient(circle, var(--firework-red) 0.3vmin, #0000 0) 80% 90%,
+    radial-gradient(circle, var(--firework-red) 0.5vmin, #0000 0) 95% 90%,
+    radial-gradient(circle, var(--firework-red) 0.5vmin, #0000 0) 10% 60%,
+    radial-gradient(circle, var(--firework-red) 0.2vmin, #0000 0) 31% 80%,
+    radial-gradient(circle, var(--firework-red) 0.3vmin, #0000 0) 80% 10%,
+    radial-gradient(circle, var(--firework-red) 0.2vmin, #0000 0) 90% 23%,
+    radial-gradient(circle, var(--firework-red) 0.3vmin, #0000 0) 45% 20%,
+    radial-gradient(circle, var(--firework-red) 0.5vmin, #0000 0) 13% 24%
+    ;
+  background-size: 0.5vmin 0.5vmin;
+  background-repeat: no-repeat;
+  animation: firework2 1s 10 forwards;
+}
+
+li:nth-of-type(9) button span:nth-of-type(2),
+li:nth-of-type(9) button span:nth-of-type(2)::before,
+li:nth-of-type(9) button span:nth-of-type(2)::after {
+  left: 92%;
+  animation: firework2 1.2s 10 forwards;
+}
+li:nth-of-type(9) button span:nth-of-type(3),
+li:nth-of-type(9) button span:nth-of-type(3)::before,
+li:nth-of-type(9) button span:nth-of-type(3)::after {
+  left: 94%;
+  animation: firework2 1.5s 10 forwards;
+}
+
+li:nth-of-type(9) button span::before {
+  transform: translate(-50%, -50%) rotate(25deg) !important; 
+}
+
+li:nth-of-type(9) button span::after {
+  transform: translate(-50%, -50%) rotate(-37deg) !important;
+}
 
 /*bovenkant*/
 li:nth-of-type(9) button > div:first-of-type {
@@ -735,6 +1086,7 @@ li:nth-of-type(9) button > div:nth-of-type(3){
 
 
 
+
 /******************/
 /***** sounds *****/
 /******************/
@@ -744,4 +1096,182 @@ embed {
 button:active + embed { 
   display: block; 
   visibility: hidden;
+}
+
+
+
+
+
+/******************/
+/*** animations ***/
+/******************/
+
+/*doosje 1*/
+@keyframes explodingbox {
+  50% {
+    opacity: 100;
+    transform-style: preserve-3d;
+  }
+  99% {
+    background-color: none;
+  }
+  99% {
+    filter: drop-shadow(0 0 1.5em red) 
+            drop-shadow(0 0 2.5em red) 
+            drop-shadow(0 0 3.5em red) 
+            drop-shadow(0 0 4.5em red)
+            drop-shadow(0 0 5.5em orange)
+            drop-shadow(0 0 6.5em white)
+            drop-shadow(0 0 7.5em white);
+  }
+  100% {
+    transform-style: none;
+    opacity: 0;
+  }
+}
+
+/*2 pijlen*/
+@keyframes shootarrows {
+  0% {
+    background: transparent;
+  }
+  90% {
+    background: transparent;
+  }
+  93% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% { 
+    offset-distance: 100%; 
+    opacity: 0;
+  }
+}
+
+/*danger box*/
+@keyframes straightup {
+  0% {
+    transform: translateY(0em);
+  }
+  98% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50em);
+    opacity: 0;
+  }
+}
+
+/*blauwe pijl*/
+@keyframes firework {
+  49% {
+    width: 0.5vmin;
+    opacity: 0;
+  }
+  50% { 
+    width: 0.5vmin;
+    opacity: 1;
+  }
+  100% { 
+    width: 45vmin; 
+    opacity: 0; 
+  }
+}
+  
+@keyframes round {
+  95% {
+    offset-distance: 100%;
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+/*vuurwerk doosje rond*/
+@keyframes firework2 {
+  0% { 
+    transform: translate(-50%, 50em);
+    width: 0.5vmin;
+    opacity: 1;
+  }
+  50% { 
+    width: 0.5vmin;
+    opacity: 1;
+  }
+  100% { 
+    width: 45vmin; 
+    opacity: 0; 
+  }
+}
+
+/*3 rode pijlen*/
+@keyframes firework3 {
+  0% {
+    width: 0.5vmin;
+    opacity: 0;
+  }
+  20% { 
+    width: 0.5vmin;
+    opacity: 1;
+  }
+  100% { 
+    width: 45vmin; 
+    opacity: 0; 
+  }
+}
+
+/*groene vat*/
+@keyframes lidup {
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+/*rotjes*/
+@keyframes jump {
+  100% {
+    transform: translateY(-5em);
+  }
+}
+@keyframes exploding {
+  0% {
+    transform: rotate(20deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  70% {
+    filter: none;
+  }
+  75% {
+    transform: rotate(-20deg);
+    filter: drop-shadow(0 0 1.5em white);
+  }
+  90% {
+    filter: none;
+    opacity: 1;
+  }
+  94% {
+    opacity: 1;
+    filter: drop-shadow(0 0 1.5em white);
+  }
+  100% {
+    opacity: 0;
+    filter: none;
+  }
+}
+@keyframes exploding2 {
+  0% {
+    width: 3em;
+  }
+  100% {
+    width: 5em;
+  }
 }
